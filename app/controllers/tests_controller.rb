@@ -2,7 +2,7 @@ class TestsController < ApplicationController
 	skip_before_action :verify_authenticity_token, only: [:create]
 
 	def index
-		Test::Index
+		run Test::Index
 	end
 
 	def new
