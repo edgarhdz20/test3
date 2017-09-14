@@ -1,0 +1,21 @@
+<table>
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Edad</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @model.each do |test| %>
+			<tr>
+				<td><%= test.name %></td>
+				<td><%= test.age %></td>
+				<th></th>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<%= link_to "Crear", new_test_path %>
+<a href="tests/new">Nuevo</a>
