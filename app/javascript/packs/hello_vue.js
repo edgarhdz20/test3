@@ -33,4 +33,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
     render: h => h(App, {props})
   }).$mount('#test_form')
+
+  var app2 = new Vue({
+    el: '#app-2',
+    data: {
+      tests: this.tests
+    }
+  })
 })

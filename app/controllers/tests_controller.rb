@@ -9,10 +9,19 @@ class TestsController < ApplicationController
 	end
 
 	def create
-    Test::Create.({test: {name: test_params[:name], age: test_params[:age]}}, current_user: User.new(true))
+    result = Test::Create.(test_params, current_user: User.new(true))
+    if result.success?
+    	render json: result["model"]
+    else
+    	render json: {message: "Ocurrio un error al crear"}, status: "500"
+    end
   end
 
+  def show
+	  run Test::Show
+	end
+
   def test_params
-  	params.require(:test).permit(:name, :age)
+  	params.permit(:test => [:name, :age])
   end
 end

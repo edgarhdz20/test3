@@ -4,6 +4,8 @@
 			<th>Nombre</th>
 			<th>Edad</th>
 			<th></th>
+			<th></th>
+			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -11,7 +13,9 @@
 			<tr>
 				<td><%= test.name %></td>
 				<td><%= test.age %></td>
-				<th></th>
+				<th><%= link_to "Ver", test %></th>
+				<th><%= link_to "Editar", edit_test_path(test) %></th>
+				<th><%= link_to "Eliminar", test %></th>
 			</tr>
 		<% end %>
 	</tbody>
