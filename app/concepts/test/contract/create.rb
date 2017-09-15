@@ -10,7 +10,7 @@ module Test::Contract
 
     validation do
       required(:name).filled
-      required(:age).maybe(min_size?: 1)
+      required(:age).filled(:int?, gt?: 0, lt?: 120)
     end
   end
 end

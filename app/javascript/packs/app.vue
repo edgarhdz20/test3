@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <form method="post" v-on:submit.prevent="onSubmit">
+    <form method="post" v-on:submit.prevent="onSubmit" class="header-form">
       <table>
         <tr>
           <th style="width:100px"><label>Nombre</label></th>
@@ -13,7 +13,10 @@
       </table>
       <input type="submit" value="Guardar">
     </form>
-    <div id="error_msg" v-bind:class="{ hidden: !hasErrors }">{{ errorMsg }}</div>
+    <div id="error_msg" v-bind:class="{ hidden: !hasErrors }">
+      {{ errorMsg }}
+      <i class="close_btn" v-on:click="closeError">X</i>
+    </div>
     <table>
       <thead>
         <tr>
@@ -62,6 +65,10 @@ export default {
         this.errorMsg = "Ocurrio un error al intentar guardar.";
         this.hasErrors = true;
       })
+    },
+    closeError: function(){
+      this.errorMsg = "";
+      this.hasErrors = false;
     }
   },
   created: function(){
